@@ -1,5 +1,3 @@
-// pages/api/v1/file.js
-
 import { S3Client } from '@aws-sdk/client-s3';
 import { Upload } from '@aws-sdk/lib-storage';
 import multer from 'multer';
