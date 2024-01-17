@@ -43,13 +43,6 @@ const MovieController = {
         try {
             const newMovie = await Movie.create({ title, posterUrl, publishYear, userId });
             await User.findByIdAndUpdate(userId, { $push: { movies: newMovie._id } }, { new: true })
-            // .then(user => {
-            //     console.log('Movie and user updated successfully:', { movie, user });
-            // })
-            // .catch(error => {
-            //     console.error('Error updating user:', error);
-            // });
-
             return res.status(201).json({ status: true, message: 'Movie created successfully', data: newMovie });
         } catch (error) {
             return res.status(500).json({ status: false, message: 'Error creating movie', data: {} });
